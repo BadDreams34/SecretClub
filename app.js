@@ -11,7 +11,7 @@ const app = express()
 let secretcode = 2343
 const {Pool} = require('pg')
 const pool = new Pool({
-    connectionString: 'postgresql://aradhya@localhost:5432/club'
+    connectionString: process.env.DATABASE_URL
 })
 
 app.use(session({secret: 'honey', resave: false, saveUninitialized: false}))
