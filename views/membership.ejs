@@ -1,0 +1,13 @@
+
+<h1>Acess MemberShip</h1>
+<form action="/membership" method="post">
+<input type="text" id="code" name="code">
+<button type="submit">Acess</button>
+</form>
+
+<% if (locals.error) { %>
+    <script>
+        alert("<%=error.map((e)=>e.msg).join('\\n')%>")
+    </script>
+<%}%>
+

@@ -1,0 +1,16 @@
+<form action="signup" method="post">
+<input id="name" name="name" type="text" placeholder="name">
+<input id="email" name="email" type="text" placeholder="email">
+
+<input id="password" type="password" name="password" placeholder="password">
+<input id="confirmpass" type="password" name="confirmpass" placeholder="Confirm Password">
+
+<button type="submit">Signup</button>
+</form>
+
+<% if (locals.error) { %>
+    <script>
+        alert("<%=error.map((e)=>e.msg).join('\\n')%>")
+    </script>
+<%}%>
+

@@ -1,0 +1,12 @@
+<a href="./new">Create a new Message</a>
+
+<h1>
+    Messages
+</h1>
+<ul>
+<% messages.forEach((user)=> {%>
+
+<li><%= user.name %>:<%= user.message %></li>
+<%})%>
+</ul>
+<a href="/welcome">Home Page</a>
