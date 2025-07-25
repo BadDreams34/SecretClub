@@ -8,13 +8,14 @@ const localStrategy = require('passport-local').Strategy
 const validationResult = validator.validationResult;
 const path = require('node:path')
 const app = express()
-let secretcode = 2343
+let secretcode = process.env.SECRETCODE
+const PORT = process.env.PORT
 const {Pool} = require('pg')
 const pool = new Pool({
     connectionString: process.env.DATABASE_URL
 })
 
-app.use(session({secret: 'honey', resave: false, saveUninitialized: false}))
+app.use(session({secret: process.env.SECRET, resave: false, saveUninitialized: false}))
 app.use(passport.session())
 app.use(express.urlencoded({extended:true}))
 app.set('views', path.join(__dirname, 'views'))
@@ -166,7 +167,7 @@ const loginadder =
 
 app.post('/signup',loginadder)
 
-app.listen(3000,()=> console.log('listening to 3000'))
+app.listen(PORT ,()=> console.log(`listening to ${PORT}`))
 
 
 
